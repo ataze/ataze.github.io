@@ -1,26 +1,26 @@
 # Site settings
-name: Brittany Chiang
-title: Brittany Chiang | Front End Software Engineer
-description: Design-minded front-end software engineer focused on building beautiful interfaces and experiences
-url: https://bchiang7.github.io/
+name: Agung Nugroho
+title: Agung Nugroho | 3D ARCHITECTURAL VISUALIZATION
+description: D3D ARCHITECTURAL VISUALIZATION
+url: https://agung.cyou
 baseurl: ''
-email: brittany.chiang@gmail.com
-cover: https://bchiang7.github.io/img/og.png
+email: agung.nugroggo@gmail.com
+cover: 
 logo: https://bchiang7.github.io/img/emojis/technologist.png
-resume: https://bchiang7.github.io/resume.pdf
+resume: 
 social:
   - title: email
-    url: mailto:brittany.chiang@gmail.com
+    url: mailto:agung.nugroggo@gmail.com
   - title: twitter
-    url: https://twitter.com/bchiang7
+    url: https://twitter.com/
   - title: instagram
-    url: https://instagram.com/bchiang7
+    url: https://instagram.com/
   - title: codepen
-    url: http://codepen.io/bchiang7
+    url: http://codepen.io/
   - title: github
-    url: https://github.com/bchiang7
+    url: https://github.com/
   - title: linkedin
-    url: https://www.linkedin.com/in/bchiang7
+    url: https://www.linkedin.com/in/
 
 # Build settings
 markdown: kramdown
