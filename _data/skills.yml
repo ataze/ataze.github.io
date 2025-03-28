@@ -1,8 +1,8 @@
-3D:
+soft:
   - item: 3ds Max
   - item: SketchUP
 
-RenderEngine:
+engine:
   - item: Corona Render
 
 tools:
