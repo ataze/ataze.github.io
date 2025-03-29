@@ -1,9 +1,11 @@
-soft:
-  - item: 3ds Max
-  - item: SketchUP
+languages:
+  - item: 3DS Max
+  - item: Sketchup
 
-engine:
+
+frameworks:
   - item: Corona Render
+
 
 tools:
   - item: Photoshop

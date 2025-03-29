@@ -1,10 +1,11 @@
 <section class="section featured-projects">
   <div class="section__title">Featured Projects</div>
   <div class="section__content">
+    <!-- Project 1 -->
     <div class="project blistabloc">
       <figure class="project__pic">
-        <a href="https://blistabloc.com/" target="_blank">
-          <img src="{{site.baseurl}}/img/featured/blistabloc/blistabloc.png" alt="">
+        <a href="#" class="image-popup">
+          <img src="{{site.baseurl}}/img/featured/blistabloc/blistabloc.png" alt="blistabloc project">
         </a>
       </figure>
       <figcaption class="project__caption">
@@ -16,17 +17,18 @@
       </figcaption>
     </div>
 
+    <!-- Project 2 -->
     <div class="project screentime">
       <figure class="project__pic phones">
-        <a href="https://play.google.com/store/apps/details?id=com.starry.management" target="_blank">
+        <a href="#" class="image-popup">
           <div class="phone">
-            <img src="{{site.baseurl}}/img/featured/screentime/screentime1.png" alt="">
+            <img src="{{site.baseurl}}/img/featured/screentime/screentime1.png" alt="screentime app screenshot 1">
           </div>
           <div class="phone">
-            <img src="{{site.baseurl}}/img/featured/screentime/screentime3.png" alt="">
+            <img src="{{site.baseurl}}/img/featured/screentime/screentime3.png" alt="screentime app screenshot 2">
           </div>
           <div class="phone">
-            <img src="{{site.baseurl}}/img/featured/screentime/screentime4.png" alt="">
+            <img src="{{site.baseurl}}/img/featured/screentime/screentime4.png" alt="screentime app screenshot 3">
           </div>
         </a>
       </figure>
@@ -39,10 +41,11 @@
       </figcaption>
     </div>
 
+    <!-- Project 3 -->
     <div class="project interventions">
       <figure class="project__pic">
-        <a href="https://interventions.design/" target="_blank">
-          <img src="{{site.baseurl}}/img/featured/interventions/interventions.png" alt="">
+        <a href="#" class="image-popup">
+          <img src="{{site.baseurl}}/img/featured/interventions/interventions.png" alt="interventions project">
         </a>
       </figure>
       <figcaption class="project__caption">
@@ -54,3 +57,10 @@
     </div>
   </div>
 </section>
+
+<!-- Popup Modal -->
+<div id="image-popup-modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modal-image">
+  <div id="caption"></div>
+</div>
