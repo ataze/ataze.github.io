@@ -2,11 +2,9 @@ languages:
   - item: 3DS Max
   - item: Sketchup
 
-
 frameworks:
   - item: Corona Render
-
-
+  
 tools:
   - item: Photoshop
   - item: Krpano
