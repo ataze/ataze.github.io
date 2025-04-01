@@ -6,8 +6,8 @@
       <div class="skillz__category">
         <div class="skillz__category__label">3D Software</div>
         <ul>
-          {% for language in site.data.languages.3D %}
-          <li class="skillz__category__item">{{languages.item}}</li>
+          {% for language in site.data.skills.languages %}
+          <li class="skillz__category__item">{{language.item}}</li>
           {% endfor %}
         </ul>
       </div>
@@ -15,7 +15,7 @@
         <div class="skillz__category__label">Render Engine</div>
         <ul>
           {% for framework in site.data.skills.frameworks %}
-          <li class="skillz__category__item">{{frameworks.item}}</li>
+          <li class="skillz__category__item">{{framework.item}}</li>
           {% endfor %}
         </ul>
       </div>

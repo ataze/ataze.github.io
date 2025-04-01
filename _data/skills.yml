@@ -9,3 +9,11 @@ tools:
   - item: Photoshop
   - item: Krpano
   - item: Pano2VR
+
+design:
+  - item: Sketch
+  - item: InDesign
+  - item: InVision
+  - item: Prototyping
+  - item: Wireframing
+  - item: User Testing

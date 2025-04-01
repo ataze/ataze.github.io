@@ -6,21 +6,14 @@ url: https://agung.cyou
 baseurl: ''
 email: agung.nugroggo@gmail.com
 cover: 
-logo: https://bchiang7.github.io/img/emojis/technologist.png
+logo: https://agung.cyou/img/a.png
 resume: 
 social:
   - title: email
     url: mailto:agung.nugroggo@gmail.com
-  - title: twitter
-    url: https://twitter.com/
   - title: instagram
-    url: https://instagram.com/
-  - title: codepen
-    url: http://codepen.io/
-  - title: github
-    url: https://github.com/
-  - title: linkedin
-    url: https://www.linkedin.com/in/
+    url: https://instagram.com/nugroggo/
+
 
 # Build settings
 markdown: kramdown
