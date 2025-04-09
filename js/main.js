@@ -154,13 +154,15 @@ $(function() {
   const span = document.getElementsByClassName("close")[0];
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function() { 
+  span.onclick = function() {
+    resetZoom(); 
     modal.style.display = "none";
     // Remove any navigation buttons that might have been added
     const buttons = modal.querySelectorAll(".modal-nav");
     buttons.forEach(button => button.remove());
     // Reset keyboard events
     document.onkeydown = null;
+    resetZoom();
   }
 
   // When the user clicks anywhere outside of the modal, close it
@@ -174,4 +176,24 @@ $(function() {
       document.onkeydown = null;
     }
   }
+
+// Zoom handling
+let scale = 1;
+let isPanning = false;
+let start = { x: 0, y: 0 };
+let origin = { x: 0, y: 0 };
+
+modalImg.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  scale += e.deltaY * -0.001;
+  scale = Math.min(Math.max(1, scale), 3);
+  modalImg.style.transform = `scale(${scale})`;
+});
+
+// Reset zoom on modal close
+function resetZoom() {
+  scale = 1;
+  modalImg.style.transform = 'scale(1)';
+}
+
 });
