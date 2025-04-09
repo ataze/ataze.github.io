@@ -176,3 +176,70 @@ body.night .modal-nav {
   max-height: 80vh;
   transform-origin: center center;
 }
+
+
+
+/* Dracula-Inspired Light Theme */
+body, html {
+  background-color: #f8f8f2;
+  color: #282a36;
+}
+
+.section__title,
+.section__content,
+.footer__copyright,
+.project__caption,
+.project__name,
+a {
+  color: #282a36;
+}
+
+.highlight-link {
+  box-shadow: inset 0 -3px 0 #bd93f9;
+}
+.highlight-link:hover {
+  box-shadow: inset 0 -33px 0 0 #bd93f9;
+  color: #f8f8f2;
+}
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.close,
+.modal-nav {
+  color: #282a36;
+}
+
+
+/* Dracula Dark Theme */
+body.night, html.night {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+body.night .section__title,
+body.night .section__content,
+body.night .footer__copyright,
+body.night .project__caption,
+body.night .project__name,
+body.night a {
+  color: #f8f8f2;
+}
+
+body.night .highlight-link {
+  box-shadow: inset 0 -3px 0 #bd93f9;
+}
+body.night .highlight-link:hover {
+  box-shadow: inset 0 -33px 0 0 #bd93f9;
+  color: #282a36;
+}
+
+body.night .modal {
+  background-color: rgba(40, 42, 54, 0.98);
+}
+
+body.night .close,
+body.night .modal-nav {
+  color: #f8f8f2;
+}
