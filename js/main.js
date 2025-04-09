@@ -79,99 +79,172 @@ $(function() {
   sr.reveal('.featured-projects', { viewFactor: 0.1 });
   sr.reveal('.other-projects', { viewFactor: 0.05 });
 
-  // New code for image popup functionality
-  const modal = document.getElementById("image-popup-modal");
-  const modalImg = document.getElementById("modal-image");
-  const captionText = document.getElementById("caption");
+  // Update the modal functionality in main.js
+const modal = document.getElementById("image-popup-modal");
+const modalImg = document.getElementById("modal-image");
+const captionText = document.getElementById("caption");
 
-  // Get all elements with class="image-popup"
-  const popupLinks = document.querySelectorAll(".image-popup");
+// Create zoom controls
+const zoomInBtn = document.createElement("button");
+zoomInBtn.className = "zoom-btn";
+zoomInBtn.innerHTML = "+";
+zoomInBtn.title = "Zoom In";
+zoomInBtn.onclick = function() {
+  modalImg.classList.toggle("zoomed");
+  zoomInBtn.style.display = modalImg.classList.contains("zoomed") ? "none" : "flex";
+  zoomOutBtn.style.display = modalImg.classList.contains("zoomed") ? "flex" : "none";
+};
 
-  // Loop through all popup links
-  popupLinks.forEach(function(link) {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
+const zoomOutBtn = document.createElement("button");
+zoomOutBtn.className = "zoom-btn";
+zoomOutBtn.innerHTML = "-";
+zoomOutBtn.title = "Zoom Out";
+zoomOutBtn.style.display = "none";
+zoomOutBtn.onclick = function() {
+  modalImg.classList.remove("zoomed");
+  zoomInBtn.style.display = "flex";
+  zoomOutBtn.style.display = "none";
+};
+
+const zoomControls = document.createElement("div");
+zoomControls.className = "zoom-controls";
+zoomControls.appendChild(zoomInBtn);
+zoomControls.appendChild(zoomOutBtn);
+document.body.appendChild(zoomControls);
+
+// Get all elements with class="image-popup"
+const popupLinks = document.querySelectorAll(".image-popup");
+
+// Loop through all popup links
+popupLinks.forEach(function(link) {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    // Reset zoom state
+    modalImg.classList.remove("zoomed");
+    zoomInBtn.style.display = "flex";
+    zoomOutBtn.style.display = "none";
+    
+    // Check if this link contains multiple images
+    const images = this.querySelectorAll("img");
+    
+    if (images.length > 1) {
+      // For projects with multiple images
+      modalImg.src = images[0].src;
+      captionText.innerHTML = images[0].alt;
       
-      // Check if this link contains multiple images (like the phone project)
-      const images = this.querySelectorAll("img");
+      // Show the modal
+      modal.style.display = "flex";
+      zoomControls.style.display = "flex";
       
-      if (images.length > 1) {
-        // For projects with multiple images (like the phone screenshots)
-        modalImg.src = images[0].src;
-        captionText.innerHTML = images[0].alt;
-        
-        // Show the modal
-        modal.style.display = "block";
-        
-        // Add navigation for multiple images
-        let currentIndex = 0;
-        
-        // Create navigation buttons
-        const prevBtn = document.createElement("div");
-        prevBtn.className = "modal-nav modal-prev";
-        prevBtn.innerHTML = "❮";
-        prevBtn.onclick = function() {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          modalImg.src = images[currentIndex].src;
-          captionText.innerHTML = images[currentIndex].alt;
-        };
-        
-        const nextBtn = document.createElement("div");
-        nextBtn.className = "modal-nav modal-next";
-        nextBtn.innerHTML = "❯";
-        nextBtn.onclick = function() {
-          currentIndex = (currentIndex + 1) % images.length;
-          modalImg.src = images[currentIndex].src;
-          captionText.innerHTML = images[currentIndex].alt;
-        };
-        
-        modal.appendChild(prevBtn);
-        modal.appendChild(nextBtn);
-        
-        // Add keyboard navigation
-        document.onkeydown = function(e) {
-          e = e || window.event;
-          if (e.keyCode == '37') {
-            // Left arrow
-            prevBtn.click();
-          } else if (e.keyCode == '39') {
-            // Right arrow
-            nextBtn.click();
-          }
-        };
-        
-      } else {
-        // For single image projects
-        const img = this.querySelector("img");
-        modalImg.src = img.src;
-        captionText.innerHTML = img.alt;
-        modal.style.display = "block";
-      }
-    });
+      // Add navigation for multiple images
+      let currentIndex = 0;
+      
+      // Create navigation buttons
+      const prevBtn = document.createElement("div");
+      prevBtn.className = "modal-nav modal-prev";
+      prevBtn.innerHTML = "❮";
+      prevBtn.onclick = function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImg.src = images[currentIndex].src;
+        captionText.innerHTML = images[currentIndex].alt;
+        modalImg.classList.remove("zoomed");
+        zoomInBtn.style.display = "flex";
+        zoomOutBtn.style.display = "none";
+      };
+      
+      const nextBtn = document.createElement("div");
+      nextBtn.className = "modal-nav modal-next";
+      nextBtn.innerHTML = "❯";
+      nextBtn.onclick = function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImg.src = images[currentIndex].src;
+        captionText.innerHTML = images[currentIndex].alt;
+        modalImg.classList.remove("zoomed");
+        zoomInBtn.style.display = "flex";
+        zoomOutBtn.style.display = "none";
+      };
+      
+      modal.appendChild(prevBtn);
+      modal.appendChild(nextBtn);
+      
+      // Add keyboard navigation
+      document.onkeydown = function(e) {
+        e = e || window.event;
+        if (e.keyCode == '37') {
+          // Left arrow
+          prevBtn.click();
+        } else if (e.keyCode == '39') {
+          // Right arrow
+          nextBtn.click();
+        } else if (e.keyCode == '27') {
+          // Escape key
+          span.click();
+        } else if (e.keyCode == '107' || e.keyCode == '187') {
+          // Plus key or equals key for zoom in
+          zoomInBtn.click();
+        } else if (e.keyCode == '109' || e.keyCode == '189') {
+          // Minus key for zoom out
+          zoomOutBtn.click();
+        }
+      };
+      
+    } else {
+      // For single image projects
+      const img = this.querySelector("img");
+      modalImg.src = img.src;
+      captionText.innerHTML = img.alt;
+      modal.style.display = "flex";
+      zoomControls.style.display = "flex";
+      
+      // Add keyboard navigation for single image
+      document.onkeydown = function(e) {
+        e = e || window.event;
+        if (e.keyCode == '27') {
+          // Escape key
+          span.click();
+        } else if (e.keyCode == '107' || e.keyCode == '187') {
+          // Plus key or equals key for zoom in
+          zoomInBtn.click();
+        } else if (e.keyCode == '109' || e.keyCode == '189') {
+          // Minus key for zoom out
+          zoomOutBtn.click();
+        }
+      };
+    }
   });
+});
 
-  // Get the <span> element that closes the modal
-  const span = document.getElementsByClassName("close")[0];
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
 
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() { 
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+  zoomControls.style.display = "none";
+  // Remove any navigation buttons that might have been added
+  const buttons = modal.querySelectorAll(".modal-nav");
+  buttons.forEach(button => button.remove());
+  // Reset keyboard events
+  document.onkeydown = null;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+modal.onclick = function(event) {
+  if (event.target == modal) {
     modal.style.display = "none";
+    zoomControls.style.display = "none";
     // Remove any navigation buttons that might have been added
     const buttons = modal.querySelectorAll(".modal-nav");
     buttons.forEach(button => button.remove());
     // Reset keyboard events
     document.onkeydown = null;
   }
+}
 
-  // When the user clicks anywhere outside of the modal, close it
-  modal.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      // Remove any navigation buttons that might have been added
-      const buttons = modal.querySelectorAll(".modal-nav");
-      buttons.forEach(button => button.remove());
-      // Reset keyboard events
-      document.onkeydown = null;
-    }
-  }
+// Double click to zoom in/out
+modalImg.addEventListener('dblclick', function() {
+  this.classList.toggle("zoomed");
+  zoomInBtn.style.display = this.classList.contains("zoomed") ? "none" : "flex";
+  zoomOutBtn.style.display = this.classList.contains("zoomed") ? "flex" : "none";
 });
