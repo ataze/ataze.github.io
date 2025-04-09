@@ -134,8 +134,8 @@ popupLinks.forEach(function(link) {
       captionText.innerHTML = images[0].alt;
       
       // Show the modal
-      modal.style.display = "flex";
-      zoomControls.style.display = "flex";
+      if (modalImg.src) modal.style.display = "flex";
+      if (modalImg.src) zoomControls.style.display = "flex";
       
       // Add navigation for multiple images
       let currentIndex = 0;
@@ -194,8 +194,8 @@ popupLinks.forEach(function(link) {
       const img = this.querySelector("img");
       modalImg.src = img.src;
       captionText.innerHTML = img.alt;
-      modal.style.display = "flex";
-      zoomControls.style.display = "flex";
+      if (modalImg.src) modal.style.display = "flex";
+      if (modalImg.src) zoomControls.style.display = "flex";
       
       // Add keyboard navigation for single image
       document.onkeydown = function(e) {
@@ -220,7 +220,7 @@ const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
-  modal.style.display = "none";
+  modal.style.display = "none"; modalImg.src = "";
   zoomControls.style.display = "none";
   // Remove any navigation buttons that might have been added
   const buttons = modal.querySelectorAll(".modal-nav");
@@ -232,7 +232,7 @@ span.onclick = function() {
 // When the user clicks anywhere outside of the modal, close it
 modal.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = "none"; modalImg.src = "";
     zoomControls.style.display = "none";
     // Remove any navigation buttons that might have been added
     const buttons = modal.querySelectorAll(".modal-nav");
