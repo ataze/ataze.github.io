@@ -158,3 +158,27 @@ body.night .modal-nav {
     width: 95%;
   }
 }
+
+
+/* MODIFIED: Ensure image popup is centered */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  touch-action: auto;
+}
