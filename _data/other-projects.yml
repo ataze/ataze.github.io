@@ -2,11 +2,19 @@
   url: https://citragardenmalang.com/360/the-cove/
   code: https://citragardenmalang.com/360/the-cove/
   description: Exterior & Interior 3D 360 Virtual Tour
-  used: 
-  
+  used:
+    - thing: virtual tour
+
 - name: Citraland Gresik Virtual Tour
   url: https://citralandgresik.com/#virtual-tour
   code: https://citralandgresik.com/#virtual-tour
-  description: Exterior & Interior 3D 360 Virtual Tour, Type Rumah
-  <a class="underline-link" href="https://citralandgresik.com/virtual-tour/sapphire/">Sapphire</a>, <a class="underline-link" href="https://citralandgresik.com/virtual-tour/topaz">Ametrine</a>, <a class="underline-link" href="https://citralandgresik.com/virtual-tour/alexandrite">Alexandrite</a>,<a class="underline-link" href="https://citralandgresik.com/virtual-tour/Amethyst">Amethyst</a>,<a class="underline-link" href="https://citralandgresik.com/virtual-tour/azurite">Azurite</a>, And <a class="underline-link" href="https://citralandgresik.com/virtual-tour/agate">Agate</a>.
-  - thing: virtual tour
+  description: >
+    Exterior & Interior 3D 360 Virtual Tour, Type Rumah:
+    <a class="underline-link" href="https://citralandgresik.com/virtual-tour/sapphire/">Sapphire</a>, |
+    <a class="underline-link" href="https://citralandgresik.com/virtual-tour/topaz">Ametrine</a>, |
+    <a class="underline-link" href="https://citralandgresik.com/virtual-tour/alexandrite">Alexandrite</a>, |
+    <a class="underline-link" href="https://citralandgresik.com/virtual-tour/Amethyst">Amethyst</a>, |
+    <a class="underline-link" href="https://citralandgresik.com/virtual-tour/azurite">Azurite</a>, |
+    and <a class="underline-link" href="https://citralandgresik.com/virtual-tour/agate">Agate</a>.
+  used:
+    - thing: virtual tour
