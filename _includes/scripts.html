@@ -1,4 +1,15 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' type="text/javascript" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<!-- PhotoSwipe Core -->
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+  });
+
+  lightbox.init();
+</script>
